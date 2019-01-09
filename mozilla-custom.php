@@ -131,7 +131,7 @@ Author: Jeremiah Orem, Craig Cook
 
         // No GA on 258, theglassroomnyc.org. See bug 1309025.
         // No GA on 242, hacks.mozilla.org. Hacks uses their own tracking ID, not the global snippet.
-        if (($blog_id != '258') || ($blog_id != '242')) :
+        if ($blog_id != '258' && $blog_id != '242') :
             wp_enqueue_script('ga-snippet', MOZ_PLUGIN_URL . '/ga-snippet.js', '', MOZ_PLUGIN_VERSION);
         endif;
     }
