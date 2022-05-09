@@ -69,5 +69,22 @@ Mozilla.dntEnabled = function(dnt, ua) {
         ga('create', 'UA-36116321-4', 'auto');
         ga('set', 'dimension1', blogName);
         ga('send', 'pageview');
+
+        // Activate new GA4 measurement ID through gtag script
+        var measurementId = 'G-X4N05QV93S';
+
+        (function(doc, tag, url) {
+            var newScript = doc.createElement(tag);
+            newScript.async = 1;
+            newScript.src = url;
+            existingScript = doc.getElementsByTagName(tag)[0]
+            existingScript.parentNode.insertBefore(newScript, existingScript)
+        })(document, 'script', 'https://www.googletagmanager.com/gtag/js?id=' + measurementId)
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', measurementId);
     }
 })();
