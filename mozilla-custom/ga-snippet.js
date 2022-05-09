@@ -77,7 +77,7 @@ Mozilla.dntEnabled = function(dnt, ua) {
             var newScript = doc.createElement(tag);
             newScript.async = 1;
             newScript.src = url;
-            existingScript = doc.getElementsByTagName(tag)[0]
+            var existingScript = doc.getElementsByTagName(tag)[0]
             existingScript.parentNode.insertBefore(newScript, existingScript)
         })(document, 'script', 'https://www.googletagmanager.com/gtag/js?id=' + measurementId)
 
