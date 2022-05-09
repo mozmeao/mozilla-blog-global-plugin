@@ -3,7 +3,7 @@
 Plugin Name: Mozilla Custom Plugins
 Plugin URI: https://blog.mozilla.org
 Description: Does custom things that we need
-Version: .3
+Version: .4
 Author: Jeremiah Orem, Craig Cook
 */
 
