@@ -73,13 +73,11 @@ Mozilla.dntEnabled = function(dnt, ua) {
         // Activate new GA4 measurement ID through gtag script
         var measurementId = 'G-X4N05QV93S';
 
-        (function(doc, tag, url) {
-            var newScript = doc.createElement(tag);
-            newScript.async = 1;
-            newScript.src = url;
-            var existingScript = doc.getElementsByTagName(tag)[0]
-            existingScript.parentNode.insertBefore(newScript, existingScript)
-        })(document, 'script', 'https://www.googletagmanager.com/gtag/js?id=' + measurementId)
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',measurementId);
 
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
