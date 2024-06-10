@@ -136,4 +136,20 @@ Author: Jeremiah Orem, Craig Cook, Maureen Holland
         endif;
     }
     add_action('wp_enqueue_scripts', 'moz_add_webanalytics');
+
+    // Add Co-authors in RSS and other feeds
+    // /wp-includes/feed-rss2.php uses the_author(), so we selectively filter the_author value
+    function moz_coauthors_in_rss($the_author) {
+
+        if (!is_feed() || !function_exists('coauthors')){
+            // if it's not a feed or coauthors is disabled, return regular author
+            return $the_author;
+        }
+        else{
+            // return coauthors
+            return coauthors(null, null, null, null, false);
+        }
+    }
+    add_filter('the_author', 'moz_coauthors_in_rss');
+
 ?>
